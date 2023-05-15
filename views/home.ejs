@@ -1,0 +1,32 @@
+<%- include("partials/header") -%>
+<h1>Home</h1>
+<p><%=homeStartingContent%></p>
+
+<% for(let i = 0; i < entries.length; i++) {
+    const kebabCase = string => string
+    .replace(/([a-z])([A-Z])/g, "$1-$2")
+    .replace(/[\s_]+/g, '-')
+    .toLowerCase();
+    const url = "/entries/" + kebabCase(entries[i].title);
+    let longerthanhundred = false;
+    let cutPost ="";
+    if(entries[i].post.length > 200){
+        longerthanhundred = true;
+        cutPost = entries[i].post.split("").slice(0,200).join("");
+    }
+    %>
+    <h1><a href="<%=url%>"><%= entries[i].title%></a></h1>
+    <% if(longerthanhundred){%>
+        <div style="inline-size: 99%; overflow-wrap: break-word;">
+            <p><%=cutPost%> ... <a href="<%=url%>" style="color: #337ab7;">Read more</a></p>
+        </div>
+        <%
+    }else{ %>
+        <div style="inline-size: 99%; overflow-wrap: break-word;">
+            <p><%= entries[i].post%></p>
+        </div>
+        <%
+    }
+    
+}%>
+<%- include("partials/footer") -%>
