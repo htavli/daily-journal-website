@@ -2,7 +2,7 @@
 <h1>Home</h1>
 <p><%=homeStartingContent%></p>
 
-<% for(let i = 0; i < entries.length; i++) {
+<% for(let i = 1; i < entries.length; i++) {
     const kebabCase = string => string
     .replace(/([a-z])([A-Z])/g, "$1-$2")
     .replace(/[\s_]+/g, '-')

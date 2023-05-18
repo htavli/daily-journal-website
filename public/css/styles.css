@@ -49,3 +49,11 @@ a{
 a:hover{
     text-decoration: none;
 }
+
+#remove{
+    display: none;
+}
+
+#entry:hover #remove{
+    display: inline-block;
+}

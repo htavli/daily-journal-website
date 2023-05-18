@@ -1,6 +1,12 @@
-<%- include("partials/header") -%>
-<h1><%= title %></h1>
+<%- include("partials/header") 
+-%>
+<div id="entry">
+<h1 style="display:inline-block"><%= title %></h1>
+<form method="POST" action="/remove/<%=id%>">
+<button id="remove" type="submit" class="btn btn-danger" style="margin-left: 10px;">X</button>
+</form>
 <div style="inline-size: 100%; word-wrap: break-word;">
 <p><%= post %></p>
+</div>
 </div>
 <%- include("partials/footer") -%>
